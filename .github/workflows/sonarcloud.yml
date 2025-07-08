@@ -19,7 +19,6 @@ jobs:
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
         with:
-          # tudo via args agora
           args: >
             -Dsonar.projectKey=moonshinerd_yt-dlp
             -Dsonar.organization=moonshinerd
