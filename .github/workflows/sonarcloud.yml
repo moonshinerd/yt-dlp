@@ -4,22 +4,22 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
   push:
-    branches: [ aee5 ]
+    branches: [aee5]
 
 jobs:
   sonar:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
+
       - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v2
+        with:
+          projectKey: moonshinerd_yt-dlp
+          organization: moonshinerd
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: |
-          sonar-scanner \
-            -Dsonar.projectKey=moonshinerd_yt-dlp \
-            -Dsonar.organization=moonshinerd \
-            -Dsonar.host.url=https://sonarcloud.io \
-            -Dsonar.login=${{ env.SONAR_TOKEN }}
