@@ -26,3 +26,4 @@ jobs:
             -Dsonar.organization=moonshinerd
             -Dsonar.host.url=https://sonarcloud.io
             -Dsonar.login=${{ env.SONAR_TOKEN }}
+            -Dsonar.branch.name=aee5
